@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>CVD</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/slider.css">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <!-- <meta name="viewport" content="width=device-width"> -->
+</head>
+
+<body>
+    <div id="body">
+
+        <h1 id="title"></h1>
+        <br>
+        <div id="author-list">
+        </div>
+        <br>
+        <div id="affiliation-list">
+        </div>
+        <div id="footnote">
+            <span >*equal contribution</span>
+        </div>
+        <br>
+        <div id="conference">
+        </div>
+        <br>
+        <div id="button-list">
+            <a id="paper">
+                <!-- <img src="assets/logos/arXiv.svg"> -->
+                <span>Paper</span>
+            </a>
+            <a id="arxiv">
+                <!-- <img src="assets/logos/arXiv.svg"> -->
+                <span>ArXiv</span>
+            </a>
+            <a id="code" href="https://github.com/CollaborativeVideoDiffusion/CVD">
+                <span>Code</span>
+            </a>
+            <!-- <a id="code">
+                <img src="assets/logos/arXiv.svg">
+                <span>code</span>
+            </a> -->
+        </div>
+        <div id="content" style="max-width:1200px;margin:auto; margin-bottom: 1em" >
+            <!-- <div id="website_demo">
+                <table style="width: 100%;margin-left:auto;margin-right:auto;">
+                    <tr>
+                        <video controls autoplay muted loop width="100%">
+                            <source src="assets/results/website.mp4">
+                        </video>
+                    </tr>
+                </table>
+            </div>
+            <br> -->
+            <section class="slider-wrapper">
+            <button class="slide-arrow slide-arrow-prev">
+                        &#8249;
+            </button>
+            <button class="slide-arrow slide-arrow-next">
+                        &#8250;
+            </button>
+
+                <ul class="slides-container">
+                    <li class="slide">
+                        <table style="margin-left:auto;margin-right:auto;">
+                            <video autoplay muted loop height=300px>
+                                <source src="assets/results/teasers/2view.mp4">
+                            </video>
+                        </table>
+                    </li>
+                    <li class="slide">
+                        <table style="margin-left:auto;margin-right:auto;">
+                            <video autoplay muted loop height=300px>
+                                <source src="assets/results/teasers/4view.mp4">
+                            </video>
+                        </table>
+                    </li>
+                    <li class="slide">
+                        <table style="margin-left:auto;margin-right:auto;">
+                            <video autoplay muted loop height=300px>
+                                <source src="assets/results/teasers/6view.mp4">
+                            </video>
+                        </table>
+                    </li>
+                </ul>
+            </section>
+            <!-- <table style="width: 100%;margin-left:auto;margin-right:auto;">
+                <tr>
+                    <video autoplay muted loop width="100%">
+                        <source src="assets/teasers/teaser.mp4">
+                    </video>
+                </tr>
+            </table>     -->
+            <br>
+            <div id='method'> 
+                <h2>Abstract</h2>
+                <p style="max-width:1200px; font-size:18px; margin:auto; text-align: justify; margin-bottom: 1em;">Research on video generation has recently made tremendous progress, enabling high-quality videos to be generated from text prompts or images. Adding control to the video generation process is an important goal moving forward and recent approaches that condition video generation models on camera trajectories make strides towards it. Yet, it remains challenging to generate a video of the same scene from multiple different camera trajectories. Solutions to this multi-video generation problem could enable large-scale 3D scene generation with editable camera trajectories, among other applications. We introduce collaborative video diffusion (CVD) as an important step towards this vision. The CVD framework includes a novel cross-video synchronization module that promotes consistency between corresponding frames of the same video rendered from different camera poses using an epipolar attention mechanism. Trained on top of a state-of-the-art camera-control module for video generation, CVD generates multiple videos rendered from different camera trajectories with significantly better consistency than baselines, as shown in extensive experiments.</p>
+            </div>
+            <br>
+            <div id='teaser'> 
+                <h2>Collaborative Video Diffusion</h2>
+                <p style="max-width:1200px; font-size:18px; margin:auto; text-align: justify; margin-bottom: 1em;">Existing video diffusion models generate videos separately, which may result in inconsistent frame contents (e.g., geometries, objects, motions) across videos (Left); Collaborative video generation aims to produce videos sharing the same underlying content (Middle); In this work, we train our model on video pair datasets, and extend it to generate more collaborative videos (Right).</p>
+                <img src="assets/imgs/teaser.png" width=1200px>
+            </div>
+            <br>
+            <div id='method'> 
+                <h2>Method Overview</h2>
+                <p style="max-width:1200px; font-size:18px; margin:auto; text-align: justify; margin-bottom: 1em;">Left: The model takes two (or more) noisy video features and camera trajectories as input and generates the noise prediction for both videos. Note that the image autoencoder of Stable Diffusion is omitted here; Right: Our Cross-View Synchronization Module takes the same frames from the two videos along with the corresponding fundamental matrix as input, and applies a masked cross-view attention between the frames.</p>
+                <img src="assets/imgs/pipeline.png" width=1200px>
+            </div>
+            <br>
+            <div id="application">
+                <h2>Applications</h2>
+                <!-- <center><p style="max-width:1500px; font-size:18px; margin:auto; text-align: justify; margin-bottom: 1em;"> -->
+                    <!-- We show a diversity of generated results below. The rendered UV map (left) is used to define the structure of the generated video clips, while a text prompt defines the style and appearance of the clips. </p></center> -->
+                    <div id="application">
+                    <table style="width: 100%;margin-left:auto;margin-right:auto;">
+                        <tr>
+                            <video controls autoplay muted loop width="100%">
+                                <source src="assets/results/website.mp4">
+                            </video>
+                        </tr>
+                    </table>
+                    </div>
+            </div>
+            <br>
+            <div id="gallery">
+                <h2>Video Pair Generation</h2>
+                <!-- <center><p style="max-width:1500px; font-size:18px; margin:auto; text-align: justify; margin-bottom: 1em;"> -->
+                    <!-- We show a diversity of generated results below. The rendered UV map (left) is used to define the structure of the generated video clips, while a text prompt defines the style and appearance of the clips. </p></center> -->
+                <div id="rumba">
+                    <table style="width: 100%;margin-left:auto;margin-right:auto;">
+                        <tr>
+                            <video autoplay muted loop width="100%">
+                                <source src="assets/results/2views/fish.mp4">
+                            </video>
+                        </tr>
+                        <tr>
+                            <video autoplay muted loop width="100%">
+                                <source src="assets/results/2views/castle.mp4">
+                            </video>
+                        </tr>
+                        <tr>
+                            <video autoplay muted loop width="100%">
+                                <source src="assets/results/2views/firework.mp4">
+                            </video>
+                        </tr>
+                        <tr>
+                            <video autoplay muted loop width="100%">
+                                <source src="assets/results/2views/storm.mp4">
+                            </video>
+                        </tr>
+                        <tr>
+                            <video autoplay muted loop width="100%">
+                                <source src="assets/results/2views/cybercity.mp4">
+                            </video>
+                        </tr>
+                    </table>
+                </div>
+                <br>
+                <h2>Face-forward Elliptical Generation</h2>
+                <!-- <center><p style="max-width:1500px; font-size:18px; margin:auto; text-align: justify; margin-bottom: 1em;"> -->
+                    <!-- We show a diversity of generated results below. The rendered UV map (left) is used to define the structure of the generated video clips, while a text prompt defines the style and appearance of the clips. </p></center> -->
+                <div id="rumba">
+                    <table style="width: 100%;margin-left:auto;margin-right:auto;">
+                        <tr>
+                            <video autoplay muted loop width="100%">
+                                <source src="assets/results/elliptical/elliptical.mp4">
+                            </video>
+                        </tr>
+                    </table>
+                </div>
+                <br>
+                <h2>Plug-and-Play on Dreambooth/LoRA</h2>
+                <!-- <center><p style="max-width:1500px; font-size:18px; margin:auto; text-align: justify; margin-bottom: 1em;"> -->
+                    <!-- We show a diversity of generated results below. The rendered UV map (left) is used to define the structure of the generated video clips, while a text prompt defines the style and appearance of the clips. </p></center> -->
+                <div id="rumba">
+                    <table style="width: 100%;margin-left:auto;margin-right:auto;">
+                        <tr>
+                            <video autoplay muted loop width="100%">
+                                <source src="assets/results/lora/lora.mp4">
+                            </video>
+                        </tr>
+                    </table>
+                </div>
+                <br>
+                <h2>Multi-Video Generation</h2>
+                <!-- <center><p style="max-width:1500px; font-size:18px; margin:auto; text-align: justify; margin-bottom: 1em;"> -->
+                    <!-- We show a diversity of generated results below. The rendered UV map (left) is used to define the structure of the generated video clips, while a text prompt defines the style and appearance of the clips. </p></center> -->
+                <div id="rumba">
+                    <table style="width: 100%;margin-left:auto;margin-right:auto;">
+                        <tr>
+                            <video autoplay muted loop width="100%">
+                                <source src="assets/results/4views/4view.mp4">
+                            </video>
+                        </tr>
+                        <tr>
+                            <video autoplay muted loop width="100%">
+                                <source src="assets/results/6views/6view.mp4">
+                            </video>
+                        </tr>
+                    </table>
+                </div>
+                <!-- <h2>Applications</h2> -->
+                <!-- <center><p style="max-width:1500px; font-size:18px; margin:auto; text-align: justify; margin-bottom: 1em;"> -->
+                    <!-- We show a diversity of generated results below. The rendered UV map (left) is used to define the structure of the generated video clips, while a text prompt defines the style and appearance of the clips. </p></center> -->
+                <!-- <div id="rumba">
+                    <table style="width: 100%;margin-left:auto;margin-right:auto;">
+                        <tr>
+                            <video controls muted loop width="100%">
+                                <source src="assets/results/application.mp4">
+                            </video>
+                        </tr>
+                    </table>
+                </div>
+                <br> -->
+                
+
+
+                <p class="section">&nbsp;</p>
+                <h2>Bibtex</h2>
+                <table style="width: 100%;margin-left:auto;margin-right:auto;">
+                    <tbody>
+                        <pre style=" display: block;
+                            background: #eee;
+                            white-space: pre;
+                            -webkit-overflow-scrolling: touch;
+                            max-width: 100%;
+                            min-width: 100px;
+                            border-radius: 20px;
+                            text-align: left;
+                            overflow: hidden;
+                            ">
+
+                        @inproceedings{kuang2024cvd,
+                            author={Kuang, Zhengfei and Cai, Shengqu and He, Hao
+                                    and Xu, Yinghao and Li, Hongsheng and Guibas, Leonidas and Wetzstein, Gordon.},
+                            title={Collaborative Video Diffusion: Consistent Multi-video Generation with Camera Control},
+                            booktitle={arXiv},
+                            year={2024}
+                        }       
+                        </pre>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    <script type="text/javascript" src="script.js"></script>
+    </div>
+</body>
